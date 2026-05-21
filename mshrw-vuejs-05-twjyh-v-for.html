@@ -1,0 +1,1155 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى إطار عمل Vue.js من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-vuejs-oct-2019/mshrw-vuejs-05-twjyh-v-for.html">
+      
+      
+        <link rel="prev" href="lmshrw-vuejs-04-ltwjyht-v-model-v-bind-lkhy-lmswb-nmwdhj-ldkhl.html">
+      
+      
+        <link rel="next" href="lmshrw-vuejs-06-tkhy-r-bstkhdm-ftt.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>7. مشروع [vuejs-05]: توجيه [v-for] - مقدمة إلى إطار عمل Vue.js من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى إطار عمل Vue.js من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-vuejs-05-v-for" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى إطار عمل Vue.js من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. مشروع [vuejs-05]: توجيه [v-for]
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-vuejs-oct-2019" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى إطار عمل Vue.js من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-vuejs-oct-2019" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdm-l-r-ml-vuejs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة إلى إطار عمل VUE.JS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dd-byy-ltwyr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. إعداد بيئة التطوير
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mshrw-vuejs-01-lssyt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. مشروع [vuejs-01]: الأساسيات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mshrw-vuejs-02-stkhdm-r-ml-bootstrap-css.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. مشروع [vuejs-02]: استخدام إطار عمل Bootstrap CSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-03-mlj-ldth.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. المشروع [vuejs-03]: معالجة الأحداث
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-04-ltwjyht-v-model-v-bind-lkhy-lmswb-nmwdhj-ldkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. المشروع [vuejs-04]: التوجيهات [v-model، v-bind]، الخصائص المحسوبة، نموذج الإدخال
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. مشروع [vuejs-05]: توجيه [v-for]
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="mshrw-vuejs-05-twjyh-v-for.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. مشروع [vuejs-05]: توجيه [v-for]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-mainjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1. البرنامج النصي الرئيسي [main.js]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2. المكون الرئيسي [App]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-vfor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3. مكون [VFor]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4. تشغيل المشروع
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-06-tkhy-r-bstkhdm-ftt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. المشروع [vuejs-06]: تخطيط عرض باستخدام فتحات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-07-ntshr-ldth-fy-ltslsl-lhrmy-llmkwnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. المشروع [vuejs-07]: انتشار الأحداث في التسلسل الهرمي للمكونات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-08-dth-mstql-n-ltslsl-lhrmy-llmkwnt-wdwr-y-lmkwnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. المشروع [vuejs-08]: أحداث مستقلة عن التسلسل الهرمي للمكونات، ودورة حياة المكونات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-09-stkhdm-mkwn-fy-eventbus.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. المشروع [vuejs-09]: استخدام مكون إضافي [eventBus]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-10-lmkwn-lfy-dao-lbt-http-yr-lmtzmn.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. المشروع [vuejs-10]: المكون الإضافي [dao]، طلبات HTTP غير المتزامنة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mshrw-vuejs-11-ltwjyh-wltnql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. مشروع [vuejs-11]: التوجيه والتنقل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-12-dr-jdwl-html.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. المشروع [vuejs-12]: إدارة جداول HTML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-13-tdyth-mkwn-bstkhdm-jls-ml.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. المشروع [vuejs-13]: تحديث مكون، باستخدام جلسة عمل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-14-jl-ljls-tfly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. المشروع [vuejs-14]: جعل الجلسة تفاعلية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-15-stkhdm-lmkwn-lfy-vuex.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. المشروع [vuejs-15]: استخدام المكون الإضافي [Vuex]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="myl-vuejs-lkhdm-sb-lryb.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. عميل Vue.js لخادم حساب الضرائب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tsynt-myl-vuejs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. تحسينات عميل Vue.js
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nshr-tbyq-lmyllkhdm-l-khdm-stf.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. نشر تطبيق العميل/الخادم على خدمة استضافة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheadingtoc2479832728496130"></a></p>
+<h1 id="7-vuejs-05-v-for">7. <span style="color: #365f91"><strong>مشروع</strong> [<bdi dir="ltr" class="odt-ltr-term">vuejs-05</bdi>]<strong>: توجيه</strong> [<bdi dir="ltr" class="odt-ltr-term">v-for</bdi>]</span></h1>
+<p>يقدم مشروع <strong>[<bdi dir="ltr" class="odt-ltr-term">vuejs-05</bdi>]</strong> توجيه <strong>[<bdi dir="ltr" class="odt-ltr-term">v-for</bdi>]</strong>:</p>
+<p><img src="images/100000000000010C00000143B6F6D834.png" width="94" height="113" style="width:2.482cm;height:2.992cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000010C00000143B6F6D834.png" /></p>
+<p><a id="refheadingtoc2479852728496130"></a></p>
+<h2 id="71-mainjs">7.1. <span style="color: #4f81bd"><strong>البرنامج النصي الرئيسي</strong> [<bdi dir="ltr" class="odt-ltr-term">main.js</bdi>]</span></h2>
+<p>كود البرنامج النصي الرئيسي <strong>[<bdi dir="ltr" class="odt-ltr-term">main.js</bdi>]</strong> مطابق لكود البرنامج النصي <strong>[<bdi dir="ltr" class="odt-ltr-term">main.js</bdi>]</strong> في المشاريع السابقة.</p>
+<p><a id="refheadingtoc2479872728496130"></a></p>
+<h2 id="72-app">7.2. <span style="color: #4f81bd"><strong>المكون الرئيسي</strong> [<bdi dir="ltr" class="odt-ltr-term">App</bdi>]</span></h2>
+<p>كود المكون <strong>[<bdi dir="ltr" class="odt-ltr-term">App</bdi>]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">template</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">b-container</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">b-card</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">b-alert</span><span style="color:#000000"> </span><span style="color:#ff0000">show</span><span style="color:#000000"> </span><span style="color:#ff0000">variant</span><span style="color:#0000ff">=&quot;success&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">align</span><span style="color:#0000ff">=&quot;center&quot;&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">h4</span><span style="color:#0000ff">&gt;</span><span style="font-weight:bold;color:#000000">[vuejs-05]</span><span style="color:#000000"> : attribut </span><span style="font-weight:bold;color:#000000">[v-for]</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">h4</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-alert</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">VFor</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-card</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-container</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">template</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">script</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">import</span><span style="color:#000000"> VFor </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#a31515">&quot;./components/VFor.vue&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">export</span><span style="color:#000000"> </span><span style="color:#0000ff">default</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    name: </span><span style="color:#a31515">&quot;app&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    components: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      VFor</span><span style="color:#000000"></span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">script</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<ul>
+  <li>السطور 7 و 14 و 19: يستخدم المكون<b> [<bdi dir="ltr" class="odt-ltr-term">App</bdi>] </b>المكون<b> [<bdi dir="ltr" class="odt-ltr-term">VFor</bdi>]</b>؛
+  </li>
+</ul>
+<p><a id="refheadingtoc2479892728496130"></a></p>
+<h2 id="73-vfor">7.3. <span style="color: #4f81bd"><strong>مكون</strong> [<bdi dir="ltr" class="odt-ltr-term">VFor</bdi>]</span></h2>
+<p>سيكون الناتج المرئي كما يلي:</p>
+<p><img src="images/100000000000059C00000285C7E668AF.png" width="359" height="161" style="width:9.5cm;height:4.267cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000059C00000285C7E668AF.png" /></p>
+<p><img src="images/1000000000000569000003298849A835.png" width="346" height="202" style="width:9.162cm;height:5.352cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000569000003298849A835.png" /></p>
+<p>فيما يلي كود مكون <strong>[<bdi dir="ltr" class="odt-ltr-term">VFor</bdi>]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">template</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">div</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&lt;!-- a drop-down list --&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">b-dropdown</span><span style="color:#000000"> </span><span style="color:#ff0000">id</span><span style="color:#0000ff">=&quot;dropdown&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">text</span><span style="color:#0000ff">=&quot;Options&quot;&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">b-dropdown-item</span><span style="color:#000000"> </span><span style="color:#ff0000">v-for</span><span style="color:#0000ff">=&quot;(option,index) in options&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                       </span><span style="color:#ff0000">:key</span><span style="color:#0000ff">=&quot;option.id&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                       </span><span style="color:#ff0000">@click</span><span style="color:#0000ff">=&quot;select(index)&quot;&gt;</span><span style="font-weight:bold;color:#000000">{{</span><span style="color:#800080">option.text</span><span style="font-weight:bold;color:#000000">}}</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-dropdown-item</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-dropdown</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&lt;!-- button --&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">b-button</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span><span style="color:#0000ff">=&quot;ml-3&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">              </span><span style="color:#ff0000">variant</span><span style="color:#0000ff">=&quot;primary&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">              </span><span style="color:#ff0000">@click</span><span style="color:#0000ff">=&quot;generateErrors&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">              </span><span style="color:#ff0000">v-if</span><span style="color:#0000ff">=&quot;!error&quot;&gt;</span><span style="color:#000000">Générer une liste d&#x27;erreurs</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-button</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">&lt;!-- alert --&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">b-alert</span><span style="color:#000000"> </span><span style="color:#ff0000">show</span><span style="color:#000000"> </span><span style="color:#ff0000">variant</span><span style="color:#0000ff">=&quot;danger&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">v-if</span><span style="color:#0000ff">=&quot;error&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span><span style="color:#0000ff">=&quot;mt-3&quot;&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      Les erreurs suivantes se sont produites :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">br</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">ul</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">li</span><span style="color:#000000"> </span><span style="color:#ff0000">v-for</span><span style="color:#0000ff">=&quot;(erreur,index) in erreurs&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">:key</span><span style="color:#0000ff">=&quot;index&quot;&gt;</span><span style="font-weight:bold;color:#000000">{{</span><span style="color:#800080">erreur</span><span style="font-weight:bold;color:#000000">}}</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">li</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">ul</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-alert</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">div</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">template</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;!-- script --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">script</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">export</span><span style="color:#000000"> </span><span style="color:#0000ff">default</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    name: </span><span style="color:#a31515">&quot;VFor&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// propriétés statiques du composant</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    data() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// liste des erreurs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        erreurs: [],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// erreur ou pas</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        error: </span><span style="color:#0000ff">false</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// liste des options du menu</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        options: [</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          { text: </span><span style="color:#a31515">&quot;option 1&quot;</span><span style="color:#000000">, id: 1 },</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          { text: </span><span style="color:#a31515">&quot;option 2&quot;</span><span style="color:#000000">, id: 2 },</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          { text: </span><span style="color:#a31515">&quot;option 3&quot;</span><span style="color:#000000">, id: 3 }</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// méthodes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    methods: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// génération d&#x27;une liste d&#x27;erreurs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      generateErrors() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">this</span><span style="color:#000000">.erreurs = </span><span style="font-weight:bold;color:#000000">[&quot;erreur 1&quot;, &quot;erreur 2&quot;, &quot;erreur 3&quot;]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">this</span><span style="color:#000000">.error = </span><span style="color:#0000ff">true</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// l&#x27;utilisateur a sélectionné une option</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      select(index) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        alert(</span><span style="color:#a31515">&quot;Vous avez choisi : &quot;</span><span style="color:#000000"> + </span><span style="color:#0000ff">this</span><span style="color:#000000">.options</span><span style="font-weight:bold;color:#000000">[index]</span><span style="color:#000000">.text);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">script</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+  <li>السطر 4: تُستخدم علامة &lt;<bdi dir="ltr" class="odt-ltr-term">b-dropdown</bdi>&gt; لتعريف قائمة منسدلة <b>[1] </b>على شكل زر يُضغط عليه لعرض خيارات القائمة <b>[2]</b>. <b>[<bdi dir="ltr" class="odt-ltr-term">text</bdi>=&#x27;<bdi dir="ltr" class="odt-ltr-term">Options</bdi>&#x27;] </b>تُحدد النص المعروض على الزر <b>[1]</b>؛
+  </li>
+  <li>الأسطر 5–7: تحدد علامة &lt;<bdi dir="ltr" class="odt-ltr-term">dropdown-item</bdi>&gt; عنصرًا في القائمة المنسدلة؛
+  </li>
+  <li>السطر 5: تشير السمة<b> [<bdi dir="ltr" class="odt-ltr-term">v-for</bdi>] </b>إلى أنه يجب تكرار العلامة &lt;<bdi dir="ltr" class="odt-ltr-term">dropdown-item</bdi>&gt; لكل عنصر <b>[<bdi dir="ltr" class="odt-ltr-term">option</bdi>] </b>من السمة<b> [<bdi dir="ltr" class="odt-ltr-term">options</bdi>]</b>، الأسطر 37–41، في المكون. يمثل<b> [<bdi dir="ltr" class="odt-ltr-term">index</bdi>] </b>رقم العنصر في القائمة <b>[0، 1، ...، n]</b>. اسم عنصر<b> [<bdi dir="ltr" class="odt-ltr-term">option</bdi>] </b>والفهرس عشوائيان. كان بإمكاننا كتابة <b>[&lt;<bdi dir="ltr" class="odt-ltr-term">b-dropdown-item v-for</bdi>=&quot;(o,i) <bdi dir="ltr" class="odt-ltr-term">in options</bdi>&quot; :key=&quot;<bdi dir="ltr" class="odt-ltr-term">o.id</bdi>&quot; @<bdi dir="ltr" class="odt-ltr-term">click</bdi>=&quot;<bdi dir="ltr" class="odt-ltr-term">select</bdi>(i)&quot;&gt;{{<bdi dir="ltr" class="odt-ltr-term">o.text</bdi>}}&lt;/<bdi dir="ltr" class="odt-ltr-term">b-dropdown-item</bdi>&gt;]</b>؛
+  </li>
+  <li>السطر 6: إذا تم حذف السمة<b> [key]</b>، فإن <bdi dir="ltr" class="odt-ltr-term">ESLint</bdi> تصدر تحذيرًا. يجب أن تظل قيمة السمة<b> [key] </b>ثابتة على المدى الطويل.  لذلك، فإن قيمة<b> [<bdi dir="ltr" class="odt-ltr-term">index</bdi>] </b>للعنصر غير مناسبة. لأنه في حالة إزالة هذا العنصر، ستنخفض قيم<b> [<bdi dir="ltr" class="odt-ltr-term">index</bdi>] </b>للعناصر التي تليه في القائمة بمقدار 1. لذلك، نستخدم هنا القيمة <b>[<bdi dir="ltr" class="odt-ltr-term">option.id</bdi>] </b>كقيمة المفتاح، الأسطر 38-40، والتي لن تتغير إذا تمت إزالة عنصر. يتم استخدام السمة<b> [key] </b>بواسطة <b>[<bdi dir="ltr" class="odt-ltr-term">Vue.js</bdi>] </b>لتحسين إعادة عرض <bdi dir="ltr" class="odt-ltr-term">DOM</bdi> (نموذج كائن المستند) عندما تحتاج القائمة إلى إعادة العرض. لاحظ ترميز<b> [:key]</b>، نظرًا لأن <b>[key] </b>لها قيمة ديناميكية؛
+  </li>
+  <li>السطر 7: سيتم استدعاء طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">select</bdi>(<bdi dir="ltr" class="odt-ltr-term">index</bdi>)]</b>، الأسطر 49-51، عندما ينقر المستخدم على عنصر في القائمة؛
+  </li>
+  <li>السطر 7: سيكون نص الخيار هو القيمة <b>[<bdi dir="ltr" class="odt-ltr-term">option.text</bdi>] </b>المحددة في الأسطر 37-41؛
+  </li>
+  <li>السطر 10: الزر<b> [3]</b>. <b>[<bdi dir="ltr" class="odt-ltr-term">class</bdi>=’<bdi dir="ltr" class="odt-ltr-term">ml-3</bdi>] </b>تعني هامش (m) يسار (l) من ثلاثة فواصل. <b>[@<bdi dir="ltr" class="odt-ltr-term">click</bdi>=&quot;<bdi dir="ltr" class="odt-ltr-term">generateErrors</bdi>&quot;] </b>تشير إلى أن طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">generateErrors</bdi>]</b>، الأسطر 45–48، سيتم تنفيذها عند <b>[النقر] </b>على الزر. <b>[<bdi dir="ltr" class="odt-ltr-term">v-if</bdi>=&quot;!<bdi dir="ltr" class="odt-ltr-term">error</bdi>&quot;] </b>يشير إلى أن عرض الزر مشروط بقيمة السمة الثابتة <b>[<bdi dir="ltr" class="odt-ltr-term">error</bdi>] </b>في السطر 35؛
+  </li>
+  <li>الأسطر 15-21: تنبيه<b> [<bdi dir="ltr" class="odt-ltr-term">danger</bdi>] [4]</b>، يتم التحكم فيه أيضًا بواسطة السمة الثابتة <b>[<bdi dir="ltr" class="odt-ltr-term">error</bdi>] </b>في السطر 35. تحدد السمة<b> [<bdi dir="ltr" class="odt-ltr-term">class</bdi>=’<bdi dir="ltr" class="odt-ltr-term">mt-3</bdi>’] </b>(هامش علوي<b> 3 </b>فواصل) المسافة بين هذا التنبيه والعنصر الموجود فوقه؛
+  </li>
+  <li>السطر 27: علامة <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> &lt;br /&gt; تنشئ فاصل أسطر؛
+  </li>
+  <li>السطر 18: بداية قائمة غير مرتبة <b>[ul=قائمة غير مرتبة]</b>؛
+  </li>
+  <li>السطر 19: تحدد علامة &lt;li&gt; عنصر قائمة &lt;ul&gt;. هنا مرة أخرى، نستخدم توجيه<b> [<bdi dir="ltr" class="odt-ltr-term">v-for</bdi>] </b>لتوليد العلامة عدة مرات — بقدر عدد العناصر الموجودة في المصفوفة<b> [<bdi dir="ltr" class="odt-ltr-term">errors</bdi>] </b>في السطر 33. نستخدم السمة<b> [:key=<bdi dir="ltr" class="odt-ltr-term">index</bdi>] </b>هنا. ذكرنا سابقًا أن فهرس عناصر القائمة ليس طريقة جيدة للتمييز بين عناصر القائمة لأنه إذا تمت إزالة عنصر، فإن فهارس جميع العناصر اللاحقة تتغير. هنا، لا يهم هذا الأمر لأن العناصر الموجودة في قائمة الأخطاء من غير المرجح أن تتم إزالتها؛
+  </li>
+  <li>السطر 19: يُستخدم هذا السطر لعرض عنصر<b> [<bdi dir="ltr" class="odt-ltr-term">error</bdi>] </b>من قائمة<b> [<bdi dir="ltr" class="odt-ltr-term">errors</bdi>]</b>؛
+  </li>
+  <li>الأسطر 30–43: جميع العناصر الديناميكية في <b>[<bdi dir="ltr" class="odt-ltr-term">template</bdi>] </b>هي سمات للمكون. لا توجد هنا خصائص<b> [<bdi dir="ltr" class="odt-ltr-term">props</bdi>] </b>يتم تعيين قيمها بواسطة المكون الأصلي؛
+  </li>
+  <li>الأسطر 48-55: تُنشئ طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">generateErrors</bdi>] </b>قائمة الأخطاء التي سيتم عرضها بواسطة العلامة &lt;ul&gt; في الأسطر 16-18. بالإضافة إلى ذلك، تقوم بتعديل السمة الثابتة <b>[<bdi dir="ltr" class="odt-ltr-term">error</bdi>]</b>، سواء لعرض قائمة الأخطاء هذه (السطر 15) أو لإخفاء زر الإنشاء (السطر 13)؛
+  </li>
+</ul>
+<p><a id="refheadingtoc2479912728496130"></a></p>
+<h2 id="74">7.4. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">تشغيل المشروع</span></strong></span></h2>
+<p><img src="images/100000000000071C0000023D32BB36D5.png" width="546" height="172" style="width:14.452cm;height:4.551cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000071C0000023D32BB36D5.png" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-Commercial –
+المشاركة بالمثل 3.0 غير المنقولة</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

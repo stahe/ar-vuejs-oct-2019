@@ -1,0 +1,1388 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمة إلى إطار عمل Vue.js من خلال أمثلة">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ar-vuejs-oct-2019/nshr-tbyq-lmyllkhdm-l-khdm-stf.html">
+      
+      
+        <link rel="prev" href="tsynt-myl-vuejs.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>20. نشر تطبيق العميل/الخادم على خدمة استضافة - مقدمة إلى إطار عمل Vue.js من خلال أمثلة</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمة إلى إطار عمل Vue.js من خلال أمثلة";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#20" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" class="md-header__button md-logo" aria-label="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمة إلى إطار عمل Vue.js من خلال أمثلة
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              20. نشر تطبيق العميل/الخادم على خدمة استضافة
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الداكن"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الداكن" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="التبديل إلى الوضع الفاتح"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="التبديل إلى الوضع الفاتح" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ar-vuejs-oct-2019" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" class="md-nav__button md-logo" aria-label="مقدمة إلى إطار عمل Vue.js من خلال أمثلة" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمة إلى إطار عمل Vue.js من خلال أمثلة
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ar-vuejs-oct-2019" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرحبًا بكم
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdm-l-r-ml-vuejs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمة إلى إطار عمل VUE.JS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dd-byy-ltwyr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. إعداد بيئة التطوير
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mshrw-vuejs-01-lssyt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. مشروع [vuejs-01]: الأساسيات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mshrw-vuejs-02-stkhdm-r-ml-bootstrap-css.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. مشروع [vuejs-02]: استخدام إطار عمل Bootstrap CSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-03-mlj-ldth.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. المشروع [vuejs-03]: معالجة الأحداث
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-04-ltwjyht-v-model-v-bind-lkhy-lmswb-nmwdhj-ldkhl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. المشروع [vuejs-04]: التوجيهات [v-model، v-bind]، الخصائص المحسوبة، نموذج الإدخال
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mshrw-vuejs-05-twjyh-v-for.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. مشروع [vuejs-05]: توجيه [v-for]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-06-tkhy-r-bstkhdm-ftt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. المشروع [vuejs-06]: تخطيط عرض باستخدام فتحات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-07-ntshr-ldth-fy-ltslsl-lhrmy-llmkwnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. المشروع [vuejs-07]: انتشار الأحداث في التسلسل الهرمي للمكونات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-08-dth-mstql-n-ltslsl-lhrmy-llmkwnt-wdwr-y-lmkwnt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. المشروع [vuejs-08]: أحداث مستقلة عن التسلسل الهرمي للمكونات، ودورة حياة المكونات
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-09-stkhdm-mkwn-fy-eventbus.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. المشروع [vuejs-09]: استخدام مكون إضافي [eventBus]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-10-lmkwn-lfy-dao-lbt-http-yr-lmtzmn.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. المشروع [vuejs-10]: المكون الإضافي [dao]، طلبات HTTP غير المتزامنة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mshrw-vuejs-11-ltwjyh-wltnql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. مشروع [vuejs-11]: التوجيه والتنقل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-12-dr-jdwl-html.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. المشروع [vuejs-12]: إدارة جداول HTML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-13-tdyth-mkwn-bstkhdm-jls-ml.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. المشروع [vuejs-13]: تحديث مكون، باستخدام جلسة عمل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-14-jl-ljls-tfly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. المشروع [vuejs-14]: جعل الجلسة تفاعلية
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lmshrw-vuejs-15-stkhdm-lmkwn-lfy-vuex.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. المشروع [vuejs-15]: استخدام المكون الإضافي [Vuex]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="myl-vuejs-lkhdm-sb-lryb.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. عميل Vue.js لخادم حساب الضرائب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tsynt-myl-vuejs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. تحسينات عميل Vue.js
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. نشر تطبيق العميل/الخادم على خدمة استضافة
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="nshr-tbyq-lmyllkhdm-l-khdm-stf.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. نشر تطبيق العميل/الخادم على خدمة استضافة
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1. نشر الخادم
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202-vuejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2. نشر عميل [Vue.js]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#203" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.3. خلاصة
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheadingtoc2721183944631036"></a></p>
+<h1 id="20">20. <span style="color: #365f91"><strong><span style="color: #365f91">نشر تطبيق العميل/الخادم على خدمة استضافة</span></strong></span></h1>
+<p>نوضح هنا نشر تطبيق العميل/الخادم الذي طورناه على خادم <bdi dir="ltr" class="odt-ltr-term">OVH</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">https://www.ovh.com/fr/</bdi>]</strong>. لا ينبغي أن يختلف النشر على مزودي الاستضافة الآخرين كثيرًا. نريد ببساطة أن نظهر أن تطبيقنا مناسب تمامًا لهذا النشر.</p>
+<p><a id="refheadingtoc2721203944631036"></a></p>
+<h2 id="201">20.1. <span style="color: #4f81bd">نشر الخادم</span></h2>
+<p>خدمة الاستضافة <bdi dir="ltr" class="odt-ltr-term">OVH</bdi> المعنية هي خطة استضافة أساسية:</p>
+<ol>
+  <li>بيئة <bdi dir="ltr" class="odt-ltr-term">PHP 7.3</bdi>؛
+  </li>
+  <li>نظام إدارة قواعد البيانات <bdi dir="ltr" class="odt-ltr-term">MySQL</bdi>؛
+  </li>
+  <li>لا يوجد خادم<b> [<bdi dir="ltr" class="odt-ltr-term">Redis</bdi>]</b>؛
+  </li>
+</ol>
+
+<p>النقطة الثالثة تتطلب منا تعديل الإصدار 14 من خادم حساب الضرائب الخاص بنا.</p>
+<p><img src="images/10000000000008170000026ACEE5D371.png" width="621" height="185" style="width:16.439cm;height:4.905cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000008170000026ACEE5D371.png" /></p>
+<p>نحتاج إلى تعديل:</p>
+<ul>
+  <li> ملفات التكوين <b>[1]</b>؛
+  </li>
+  <li>وحدات التحكم <b>[<bdi dir="ltr" class="odt-ltr-term">AdminDataController</bdi>] </b>و <b>[<bdi dir="ltr" class="odt-ltr-term">CalculerImpotController</bdi>] </b>لمراعاة عدم وجود خادم<b> [<bdi dir="ltr" class="odt-ltr-term">Redis</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>يتغير ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>]</strong> على النحو التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;databaseFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;Config/database.json&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;corsAllowed&quot;</span><span style="color:#000000">: </span><span style="color:#0000ff">false</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;</span><span style="background-color:#ffff00;color:#2e75b6">redisAvailable</span><span style="color:#2e75b6">&quot;</span><span style="color:#000000">:</span><span style="background-color:#ffff00;color:#0000ff">false</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;rootDirectory&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;</span><span style="background-color:#ffff00;color:#a31515">/.../www/apps/impot/serveur-php7</span><span style="color:#a31515">&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;relativeDependencies&quot;</span><span style="color:#000000">: [</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;/Entities/BaseEntity.php&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;/Controllers/AdminDataController.php&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;absoluteDependencies&quot;</span><span style="color:#000000">: [</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;/</span><span style="background-color:#ffff00;color:#a31515">...</span><span style="color:#a31515">/vendor/autoload.php&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;/</span><span style="background-color:#ffff00;color:#a31515">...</span><span style="color:#a31515">/vendor/predis/predis/autoload.php&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;users&quot;</span><span style="color:#000000">: [</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#2e75b6">&quot;login&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;admin&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#2e75b6">&quot;passwd&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;admin&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#a31515">...</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong><span style="color: #000000">تعليقات</span></strong></p>
+<ul>
+  <li><span style="color: #000000">السطر 4: نقدم متغيرًا منطقيًا </span><b><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">redisAvailable</bdi>] </span></b><span style="color: #000000">للإشارة إلى ما إذا كان لدينا وصول إلى خادم</span><b><span style="color: #000000"> [<bdi dir="ltr" class="odt-ltr-term">Redis</bdi>] </span></b><span style="color: #000000">أم لا؛</span>
+  </li>
+  <li><span style="color: #000000">السطور 5 و13 و14: ستتغير المسارات المطلقة؛</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">يتغير ملف</span><strong><span style="color: #000000"> [<bdi dir="ltr" class="odt-ltr-term">database.json</bdi>] </span></strong><span style="color: #000000">على النحو التالي:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;dsn&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;mysql:host=</span><span style="background-color:#ffff00;color:#a31515">...</span><span style="color:#a31515">;dbname=</span><span style="background-color:#ffff00;color:#a31515">...</span><span style="color:#a31515">&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;id&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;</span><span style="background-color:#ffff00;color:#a31515">...</span><span style="color:#a31515">&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;pwd&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;</span><span style="background-color:#ffff00;color:#a31515">...</span><span style="color:#a31515">&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;tableTranches&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;</span><span style="background-color:#ffff00;color:#a31515">dbimpots_tbtranches</span><span style="color:#a31515">&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;colLimites&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;limites&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;colCoeffR&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;coeffr&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;colCoeffN&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;coeffn&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;tableConstantes&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;</span><span style="background-color:#ffff00;color:#a31515">dbimpots_tbconstantes</span><span style="color:#a31515">&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;colPlafondQfDemiPart&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;plafondQfDemiPart&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#a31515">...</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+  <li>السطور 2–4: سيتغير اسم قاعدة البيانات وبيانات اعتماد مالكها؛
+  </li>
+</ul>
+
+<p>يتطور <strong>[<bdi dir="ltr" class="odt-ltr-term">AdminDataController</bdi>]</strong> على النحو التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> </span><span style="color:#2b91af">Application</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// symfony dependencies</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">use</span><span style="color:#000000"> \Symfony\Component\HttpFoundation\Response;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">use</span><span style="color:#000000"> \Symfony\Component\HttpFoundation\Request;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">use</span><span style="color:#000000"> \Symfony\Component\HttpFoundation\Session\Session;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// layer alias [dao]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">use</span><span style="color:#000000"> \Application\ServerDaoWithSession </span><span style="color:#0000ff">as</span><span style="color:#000000"> ServerDaoWithRedis;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">AdminDataController</span><span style="color:#000000"> </span><span style="color:#0000ff">implements</span><span style="color:#000000"> </span><span style="color:#2b91af">InterfaceController</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// $config is the application configuration</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// traitement d&#x27;une requête Request</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// session and can modify it</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// $infos is additional information specific to each controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// renders an array [$statusCode, $état, $content, $headers]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">function</span><span style="color:#000000"> </span><span style="color:#2b91af">execute</span><span style="color:#000000">(</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">array</span><span style="color:#000000"> $config,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2b91af">Request</span><span style="color:#000000"> $request,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2b91af">Session</span><span style="color:#000000"> $session,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">array</span><span style="color:#000000"> $infos = </span><span style="color:#0000ff">NULL</span><span style="color:#000000">): </span><span style="color:#0000ff">array</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// you must have a single parameter GET</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $method = </span><span style="color:#0000ff">strtolower</span><span style="color:#000000">($request-&gt;getMethod());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// we can work</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Redis</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> (</span><span style="background-color:#ffff00;color:#000000">$config</span><span style="font-weight:bold;background-color:#ffff00;color:#000000">[&quot;redisAvailable&quot;]</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      \Predis\</span><span style="color:#2b91af">Autoloader</span><span style="color:#000000">::register();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="color:#0000ff">else</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// retrieve tax data from the database</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        $dao = </span><span style="color:#0000ff">new</span><span style="color:#000000"> </span><span style="color:#2b91af">ServerDaoWithRedis</span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;databaseFilename&quot;]</span><span style="color:#000000">, </span><span style="color:#0000ff">NULL</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// taxAdminData</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        $taxAdminData = $dao-&gt;getTaxAdminData();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      } </span><span style="color:#0000ff">catch</span><span style="color:#000000"> (\</span><span style="color:#2b91af">Throwable</span><span style="color:#000000"> $ex) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// it didn&#x27;t go well</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// return result with error to main controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        $état = 1051;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> [</span><span style="color:#2b91af">Response</span><span style="color:#000000">::HTTP_INTERNAL_SERVER_ERROR, $état,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="font-weight:bold;color:#000000">[&quot;réponse&quot; =&gt; utf8_encode($ex-&gt;getMessage())]</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#000000">[]]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// return result to main controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    $état = 1000;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#000000">[Response::HTTP_OK, $état, [&quot;réponse&quot; =&gt; $taxAdminData]</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#000000">[]]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+  <li>السطر 31: نتحقق الآن مما إذا كان لدينا خادم<b> [<bdi dir="ltr" class="odt-ltr-term">Redis</bdi>] </b>أم لا؛
+  </li>
+  <li>الأسطر 32–34: إذا كان الأمر كذلك، يتم تنفيذ الكود السابق بالكامل؛
+  </li>
+  <li>الأسطر 35–46: وإلا، يتم استرداد بيانات مصلحة الضرائب من قاعدة البيانات؛
+  </li>
+</ul>
+
+<p>يتم تحديث وحدة التحكم <strong>[<bdi dir="ltr" class="odt-ltr-term">CalculerImpotController</bdi>]</strong>، التي تتطلب هي الأخرى بيانات من مصلحة الضرائب، بالطريقة نفسها.</p>
+<p>هذا كل شيء. تضمن النشر على خادم <bdi dir="ltr" class="odt-ltr-term">OVH</bdi> استخدام بروتوكول <bdi dir="ltr" class="odt-ltr-term">FTP.</bdi> قمنا بتحميل ما يلي على <bdi dir="ltr" class="odt-ltr-term">OVH:</bdi></p>
+<ul>
+  <li>إصدار<b> [<bdi dir="ltr" class="odt-ltr-term">vuejs-14-without-redis</bdi>]</b>؛
+  </li>
+  <li>المجلد<b> [<bdi dir="ltr" class="odt-ltr-term">vendor</bdi>]</b>، الذي يحتوي على جميع التبعيات لخادم<b> [<bdi dir="ltr" class="odt-ltr-term">vuejs-14-without-redis</bdi>]</b>؛
+  </li>
+</ul>
+
+<p>بمجرد اكتمال نقل <bdi dir="ltr" class="odt-ltr-term">FTP</bdi>، قمنا بإنشاء الجداول اللازمة للخادم باستخدام البرنامج النصي <bdi dir="ltr" class="odt-ltr-term">SQL</bdi> التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<span class="odt-code-line"><span class="odt-code-line-content">-- phpMyAdmin SQL Dump</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- version 4.8.5</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- https://www.phpmyadmin.net/</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Host: localhost:3306</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Generation Time: Oct 12, 2019 at 07:45 AM</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Server version: 5.7.24</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- PHP Version: 7.2.11</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">SET</span><span style="color:#000000"> SQL_MODE = </span><span style="color:#a31515">&quot;NO_AUTO_VALUE_ON_ZERO&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">SET</span><span style="color:#000000"> AUTOCOMMIT = 0;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">START TRANSACTION</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">SET</span><span style="color:#000000"> time_zone = </span><span style="color:#a31515">&quot;+00:00&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">/*!40101 SET NAMES utf8mb4 */</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Table structure for table `dbimpots_tbconstantes`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">CREATE</span><span style="color:#000000"> </span><span style="color:#0000ff">TABLE</span><span style="color:#000000"> `</span><span style="background-color:#ffff00;color:#2b91af">dbimpots_tbconstantes</span><span style="color:#000000">` (</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`id`</span><span style="color:#000000"> </span><span style="color:#0000ff">int</span><span style="color:#000000">(11) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`plafondQfDemiPart`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`plafondRevenusCelibatairePourReduction`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`plafondRevenusCouplePourReduction`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`valeurReducDemiPart`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`plafondDecoteCelibataire`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`plafondDecoteCouple`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`plafondImpotCelibatairePourDecote`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`plafondImpotCouplePourDecote`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`abattementDixPourcentMax`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`abattementDixPourcentMin`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Dumping data for table `dbimpots_tbconstantes`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">INSERT INTO</span><span style="color:#000000"> </span><span style="color:#a31515">`dbimpots_tbconstantes`</span><span style="color:#000000"> (</span><span style="color:#a31515">`id`</span><span style="color:#000000">, </span><span style="color:#a31515">`plafondQfDemiPart`</span><span style="color:#000000">, </span><span style="color:#a31515">`plafondRevenusCelibatairePourReduction`</span><span style="color:#000000">, </span><span style="color:#a31515">`plafondRevenusCouplePourReduction`</span><span style="color:#000000">, </span><span style="color:#a31515">`valeurReducDemiPart`</span><span style="color:#000000">, </span><span style="color:#a31515">`plafondDecoteCelibataire`</span><span style="color:#000000">, </span><span style="color:#a31515">`plafondDecoteCouple`</span><span style="color:#000000">, </span><span style="color:#a31515">`plafondImpotCelibatairePourDecote`</span><span style="color:#000000">, </span><span style="color:#a31515">`plafondImpotCouplePourDecote`</span><span style="color:#000000">, </span><span style="color:#a31515">`abattementDixPourcentMax`</span><span style="color:#000000">, </span><span style="color:#a31515">`abattementDixPourcentMin`</span><span style="color:#000000">) </span><span style="color:#0000ff">VALUES</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">(8, </span><span style="color:#a31515">&#x27;1551.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;21037.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;42074.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;3797.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;1196.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;1970.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;1595.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;2627.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;12502.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;437.00&#x27;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- --------------------------------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Table structure for table `dbimpots_tbtranches`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">CREATE</span><span style="color:#000000"> </span><span style="color:#0000ff">TABLE</span><span style="color:#000000"> `</span><span style="background-color:#ffff00;color:#2b91af">dbimpots_tbtranches</span><span style="color:#000000">` (</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`id`</span><span style="color:#000000"> </span><span style="color:#0000ff">int</span><span style="color:#000000">(11) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`limites`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`coeffR`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#a31515">`coeffN`</span><span style="color:#000000"> </span><span style="color:#0000ff">decimal</span><span style="color:#000000">(10,2) </span><span style="color:#0000ff">NOT NULL</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Dumping data for table `dbimpots_tbtranches`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">INSERT INTO</span><span style="color:#000000"> </span><span style="color:#a31515">`dbimpots_tbtranches`</span><span style="color:#000000"> (</span><span style="color:#a31515">`id`</span><span style="color:#000000">, </span><span style="color:#a31515">`limites`</span><span style="color:#000000">, </span><span style="color:#a31515">`coeffR`</span><span style="color:#000000">, </span><span style="color:#a31515">`coeffN`</span><span style="color:#000000">) </span><span style="color:#0000ff">VALUES</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">(36, </span><span style="color:#a31515">&#x27;9964.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;0.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;0.00&#x27;</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">(37, </span><span style="color:#a31515">&#x27;27519.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;0.14&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;1394.96&#x27;</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">(38, </span><span style="color:#a31515">&#x27;73779.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;0.30&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;5798.00&#x27;</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">(39, </span><span style="color:#a31515">&#x27;156244.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;0.41&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;13913.69&#x27;</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">(40, </span><span style="color:#a31515">&#x27;0.00&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;0.45&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;20163.45&#x27;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Indexes for dumped tables</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Indexes for table `dbimpots_tbconstantes`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">ALTER</span><span style="color:#000000"> </span><span style="color:#0000ff">TABLE</span><span style="color:#000000"> </span><span style="color:#a31515">`dbimpots_tbconstantes`</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  ADD </span><span style="color:#0000ff">PRIMARY KEY</span><span style="color:#000000"> (</span><span style="color:#a31515">`id`</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- Indexes for table `dbimpots_tbtranches`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">ALTER</span><span style="color:#000000"> </span><span style="color:#0000ff">TABLE</span><span style="color:#000000"> </span><span style="color:#a31515">`dbimpots_tbtranches`</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  ADD </span><span style="color:#0000ff">PRIMARY KEY</span><span style="color:#000000"> (</span><span style="color:#a31515">`id`</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- AUTO_INCREMENT for dumped tables</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- AUTO_INCREMENT for table `dbimpots_tbconstantes`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">ALTER</span><span style="color:#000000"> </span><span style="color:#0000ff">TABLE</span><span style="color:#000000"> </span><span style="color:#a31515">`dbimpots_tbconstantes`</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  MODIFY </span><span style="color:#a31515">`id`</span><span style="color:#000000"> </span><span style="color:#0000ff">int</span><span style="color:#000000">(11) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000"> AUTO_INCREMENT, AUTO_INCREMENT=9;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">-- AUTO_INCREMENT for table `dbimpots_tbtranches`</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">ALTER</span><span style="color:#000000"> </span><span style="color:#0000ff">TABLE</span><span style="color:#000000"> </span><span style="color:#a31515">`dbimpots_tbtranches`</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  MODIFY </span><span style="color:#a31515">`id`</span><span style="color:#000000"> </span><span style="color:#0000ff">int</span><span style="color:#000000">(11) </span><span style="color:#0000ff">NOT NULL</span><span style="color:#000000"> AUTO_INCREMENT, AUTO_INCREMENT=41;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">COMMIT</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */</span><span style="color:#000000">;</span></span></span>
+</code></pre></div>
+
+<p>بمجرد الانتهاء من كل هذا، قمنا بتكييف ملفات <strong>[<bdi dir="ltr" class="odt-ltr-term">config.json</bdi>، <bdi dir="ltr" class="odt-ltr-term">database.json</bdi>]</strong> مع بيئتها الجديدة.</p>
+<p><a id="refheadingtoc2721223944631036"></a></p>
+<h2 id="202-vuejs">20.2. <span style="color: #4f81bd"><strong>نشر عميل</strong> [<bdi dir="ltr" class="odt-ltr-term">Vue.js</bdi>]</span></h2>
+<p>تقرر نشر عميل <strong>[<bdi dir="ltr" class="odt-ltr-term">Vue.js</bdi>]</strong> على عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong>[<bdi dir="ltr" class="odt-ltr-term">http://machine/apps/impot/client-vuejs/</bdi>]</strong>. وأدى ذلك إلى التغييرات التالية:</p>
+<p>في جذر <strong>[مساحة عمل] [<bdi dir="ltr" class="odt-ltr-term">VSCode</bdi>]،</strong> أنشأنا ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">vue.config.js</bdi>]</strong> التالي:</p>
+<p><img src="images/10000000000007F9000004EBFEE45FBD.png" width="612" height="378" style="width:16.2cm;height:9.992cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007F9000004EBFEE45FBD.png" /></p>
+<p>ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">vue.config.js</bdi>]</strong> هو كما يلي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">// vue.config.js</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">module.exports = {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// l&#x27;URL de service du client [vuejs] du serveur de calcul de l&#x27;impôt</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  publicPath: </span><span style="color:#a31515">&#x27;/apps/impot/client-vuejs/&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>كما تم تعديل ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">router.js</bdi>] [3]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">// imports</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> Vue </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#a31515">&#x27;vue&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> VueRouter </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#a31515">&#x27;vue-router&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// plugin de routage</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Vue.use(VueRouter)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// les routes de l&#x27;application</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">const</span><span style="color:#000000"> routes = [</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// le routeur</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">const</span><span style="color:#000000"> router = </span><span style="color:#0000ff">new</span><span style="color:#000000"> VueRouter({</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// les routes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  routes,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// le mode d&#x27;affichage des URL</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  mode: </span><span style="color:#a31515">&#x27;history&#x27;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// l&#x27;URL de base de l&#x27;application</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="background-color:#ffff00;color:#000000">base: </span><span style="background-color:#ffff00;color:#a31515">&#x27;/apps/impot/client-vuejs/&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">})</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// vérification des routes</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">router.beforeEach((to, from, next) =&gt; {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">})</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// export du router</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">export</span><span style="color:#000000"> </span><span style="color:#0000ff">default</span><span style="color:#000000"> router</span></span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+  <li>السطر 21: تم تغيير قاعدة عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi>؛
+  </li>
+</ul>
+
+<p>تم تعديل ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">config.js</bdi>]</strong> على النحو التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">// utilisation de la bibliothèque [axios]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">const</span><span style="color:#000000"> axios = require(</span><span style="color:#a31515">&#x27;axios&#x27;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// timeout des requêtes HTTP</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">axios.defaults.timeout = 5000;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// la base des URL du serveur de calcul de l&#x27;impôt</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">// le schéma [https] pose des problèmes à Firefox parce que le serveur de calcul</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// de l&#x27;impôt envoie un certificat autosigné. ok avec Chrome et Edge. Safari pas testé.</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// avec Firefox c&#x27;est possible en demandant l&#x27;URL ci-dessous directement et en disant à Firefox</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">// que vous acceptez le risque d&#x27;un certificat non signé. Ensuite le client [vuejs] fonctionnera.</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">axios.defaults.baseURL = </span><span style="color:#a31515">&#x27;http://.../apps/impot/serveur-php7&#x27;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// on va utiliser des cookies</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">axios.defaults.withCredentials = </span><span style="color:#0000ff">true</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// export de la configuration</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">export</span><span style="color:#000000"> </span><span style="color:#0000ff">default</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// objet [axios]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  axios: axios,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// délai maximal d&#x27;inactivité de la session : 5 mn = 300 s = 300000 ms</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  duréeSession: 300000</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>تعليقات</strong></p>
+<ul>
+  <li>السطر 10: أدخل عنوان <bdi dir="ltr" class="odt-ltr-term">URL</bdi> لخادم حساب الضرائب؛
+  </li>
+</ul>
+
+<p>تم إنشاء الإصدار النهائي للمشروع باستخدام الأمر <strong>[<bdi dir="ltr" class="odt-ltr-term">build</bdi>]</strong> في ملف <strong>[<bdi dir="ltr" class="odt-ltr-term">package.json</bdi>]</strong> التالي <strong>[5]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#2e75b6">&quot;name&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;vuejs&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#2e75b6">&quot;version&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;0.1.0&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#2e75b6">&quot;private&quot;</span><span style="color:#000000">: </span><span style="color:#0000ff">true</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#2e75b6">&quot;scripts&quot;</span><span style="color:#000000">: {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;serve&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;vue-cli-service serve vuejs-22/main.js&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="background-color:#ffff00;color:#2e75b6">&quot;build&quot;</span><span style="background-color:#ffff00;color:#000000">: </span><span style="background-color:#ffff00;color:#a31515">&quot;vue-cli-service build vuejs-22-ovh-withBootstrapVue/main.js&quot;</span><span style="background-color:#ffff00;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#2e75b6">&quot;lint&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;vue-cli-service lint&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>بمجرد الانتهاء من ذلك، تم &quot;تحميل&quot; المجلد <strong>[<bdi dir="ltr" class="odt-ltr-term">dist</bdi>]</strong> الذي يحتوي على إصدار الإنتاج الذي تم إنشاؤه إلى خادم <bdi dir="ltr" class="odt-ltr-term">OVH</bdi> في المجلد <strong>[/.../<bdi dir="ltr" class="odt-ltr-term">apps/impot</bdi>]</strong> ثم تمت إعادة تسميته <strong>إلى [<bdi dir="ltr" class="odt-ltr-term">client-vuejs</bdi>]</strong> بحيث يكون كود العميل في المجلد <strong>[/.../<bdi dir="ltr" class="odt-ltr-term">apps/impot/client-vuejs/</bdi>]</strong> كما هو مخطط. ثم، في هذا المجلد، قمنا بتحميل ملف <strong>[.<bdi dir="ltr" class="odt-ltr-term">htaccess</bdi>]</strong> التالي:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">IfModule</span><span style="color:#0000ff"> </span><span style="color:#ff0000">mod_rewrite.c</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  RewriteEngine On</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  RewriteBase </span><span style="background-color:#ffff00;color:#000000">/apps/impot/client-vuejs/</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  RewriteRule ^index\.html$ - <span style="font-weight:bold">[L]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  RewriteCond %{REQUEST_FILENAME} !-f</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  RewriteCond %{REQUEST_FILENAME} !-d</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  RewriteRule . </span><span style="background-color:#ffff00;color:#000000">/apps/impot/client-vuejs/</span><span style="color:#000000">index.html </span><span style="font-weight:bold;color:#000000">[L]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#a31515">IfModule</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<p>وذلك لأن خادم الويب <bdi dir="ltr" class="odt-ltr-term">OVH</bdi> المستخدم هنا هو خادم <bdi dir="ltr" class="odt-ltr-term">Apache.</bdi> بالنسبة لأنواع الخوادم الأخرى، يرجى الرجوع إلى الوثائق |<a href="https://cli.vuejs.org/guide/deployment.html"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">https://cli.vuejs.org/guide/deployment.html</bdi></span></u></a>|.</p>
+<p>يمكن اختبار تطبيق خادم <bdi dir="ltr" class="odt-ltr-term">PHP</bdi> 7 <strong>|هنا|</strong>.</p>
+<p>يمكن اختبار عميل [<bdi dir="ltr" class="odt-ltr-term">Vue.js</bdi>] <strong>|هنا|</strong>.</p>
+<p><a id="refheadingtoc259329196815120"></a></p>
+<h2 id="203">20.3. <span style="color: #4f81bd">خلاصة</span></h2>
+<p>لم تكن النسخة <strong>[<bdi dir="ltr" class="odt-ltr-term">vuejs-21</bdi>]</strong> ضرورية. لقد رأينا أن الإصدار <strong>[<bdi dir="ltr" class="odt-ltr-term">vuejs-20</bdi>]</strong> تعامل مع عناوين <bdi dir="ltr" class="odt-ltr-term">URL</bdi> التي أدخلها المستخدم بشكل صحيح. ومع ذلك، يوفر الإصدار الجديد مزيدًا من الراحة للمستخدم. يمكنهم التنقل عن طريق كتابة عناوين <bdi dir="ltr" class="odt-ltr-term">URL.</bdi> ثم يعرض التطبيق العرض الذي يناسب الحالة الحالية (الجلسة) للتطبيق. بالإضافة إلى ذلك، يقدم الإصدار <strong>[<bdi dir="ltr" class="odt-ltr-term">vuejs-22</bdi>]</strong> تحسينات على عرض التطبيق على الأجهزة المحمولة.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        هذا البرنامج التعليمي الذي كتبه <strong>Serge Tahé</strong> متاح للجمهور وفقًا لشروط
+<em>Creative Commons Attribution – Non-Commercial –
+المشاركة بالمثل 3.0 غير المنقولة</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
