@@ -1885,7 +1885,7 @@
   </li>
 </ul>
 
-<p>هذا يعمل أيضًا. ميزة الحل المختار هي أن النموذج يتم إرساله ليس فقط بالنقر على زر <strong>[<bdi dir="ltr" class="odt-ltr-term">Submit</bdi>]</strong>، بل أيضًا بالضغط على مفتاح <strong>[<bdi dir="ltr" class="odt-ltr-term">Enter</bdi>]</strong> في حقول الإدخال. لذلك تم اختيار حل <strong>[&lt;<bdi dir="ltr" class="odt-ltr-term">b-form</bdi> @<bdi dir="ltr" class="odt-ltr-term">submit.prevent</bdi>=&quot;<bdi dir="ltr" class="odt-ltr-term">login</bdi>&quot;&gt;]</strong> هنا لراحة المستخدم؛</p>
+<p>هذا يعمل أيضًا. ميزة الحل المختار هي أن النموذج يتم إرساله ليس فقط بالنقر على زر <strong>[<bdi dir="ltr" class="odt-ltr-term">Submit</bdi>]</strong>، بل أيضًا بالضغط على مفتاح <strong>[<bdi dir="ltr" class="odt-ltr-term">Enter</bdi>]</strong> في حقول الإدخال. لذلك تم اختيار حل <strong>[&lt;<bdi dir="ltr" class="odt-ltr-term">b-form @submit.prevent</bdi>=&quot;<bdi dir="ltr" class="odt-ltr-term">login</bdi>&quot;&gt;]</strong> هنا لراحة المستخدم؛</p>
 <ul>
   <li>الأسطر 33–37: تنبيه يظهر عندما يرفض الخادم بيانات الاعتماد التي أدخلها المستخدم:
   </li>
@@ -1895,7 +1895,7 @@
 <ul>
   <li>السطر 35: زر<b> [<bdi dir="ltr" class="odt-ltr-term">Submit</bdi>] </b>ليس نشطًا دائمًا. تعتمد حالته على السمة المحسوبة <b>[<bdi dir="ltr" class="odt-ltr-term">valid</bdi>] </b>في الأسطر 71–73. تكون السمة<b> [<bdi dir="ltr" class="odt-ltr-term">valid</bdi>] </b>صحيحة إذا:
     <ul>
-      <li>وجود شيء ما في حقول<b> [<bdi dir="ltr" class="odt-ltr-term">user</bdi>, <bdi dir="ltr" class="odt-ltr-term">password</bdi>] </b>في النموذج؛
+      <li>وجود شيء ما في حقول<b> [<bdi dir="ltr" class="odt-ltr-term">user, password</bdi>] </b>في النموذج؛
       </li>
       <li>بدأت جلسة <bdi dir="ltr" class="odt-ltr-term">JSON.</bdi> في البداية، لم تبدأ هذه الجلسة (السطر 59) وبالتالي فإن زر<b> [<bdi dir="ltr" class="odt-ltr-term">Validate</bdi>] </b>غير نشط.
       </li>
@@ -1937,7 +1937,7 @@
   </li>
   <li>السطر 79: تم إضافة الكلمة الرئيسية<b> [<bdi dir="ltr" class="odt-ltr-term">async</bdi>] </b>إلى بداية الأسلوب للسماح باستخدام الكلمة الرئيسية<b> [<bdi dir="ltr" class="odt-ltr-term">await</bdi>]</b>، السطور 84 و 103؛
   </li>
-  <li>الأسطر 84-87: استدعاء حظر لطريقة<b> [$<bdi dir="ltr" class="odt-ltr-term">dao.authenticateUser</bdi>(<bdi dir="ltr" class="odt-ltr-term">user</bdi>, <bdi dir="ltr" class="odt-ltr-term">password</bdi>)]</b>. كان بإمكاننا استخدام <b>[<bdi dir="ltr" class="odt-ltr-term">Promise</bdi>] </b>كما تم في الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">created</bdi>]</b>. أردنا تنويع الأنماط. لا يوجد خطر من حجب المستخدم لأننا قمنا بتعيين <b>[<bdi dir="ltr" class="odt-ltr-term">timeout</bdi>] </b>لمدة ثانيتين على جميع طلبات <bdi dir="ltr" class="odt-ltr-term">HTTP.</bdi> لن يضطروا إلى الانتظار طويلاً. علاوة على ذلك، لا يمكنهم فعل أي شيء حتى يعود الخادم برده، حيث يظل زر<b> [<bdi dir="ltr" class="odt-ltr-term">Validate</bdi>] </b>غير نشط حتى ذلك الحين؛
+  <li>الأسطر 84-87: استدعاء حظر لطريقة<b> [$<bdi dir="ltr" class="odt-ltr-term">dao.authenticateUser</bdi>(<bdi dir="ltr" class="odt-ltr-term">user, password</bdi>)]</b>. كان بإمكاننا استخدام <b>[<bdi dir="ltr" class="odt-ltr-term">Promise</bdi>] </b>كما تم في الدالة<b> [<bdi dir="ltr" class="odt-ltr-term">created</bdi>]</b>. أردنا تنويع الأنماط. لا يوجد خطر من حجب المستخدم لأننا قمنا بتعيين <b>[<bdi dir="ltr" class="odt-ltr-term">timeout</bdi>] </b>لمدة ثانيتين على جميع طلبات <bdi dir="ltr" class="odt-ltr-term">HTTP.</bdi> لن يضطروا إلى الانتظار طويلاً. علاوة على ذلك، لا يمكنهم فعل أي شيء حتى يعود الخادم برده، حيث يظل زر<b> [<bdi dir="ltr" class="odt-ltr-term">Validate</bdi>] </b>غير نشط حتى ذلك الحين؛
   </li>
   <li>السطر 91: يرسل خادم حساب الضرائب استجابات بتنسيق <bdi dir="ltr" class="odt-ltr-term">JSON</bdi>، وجميعها تتخذ الشكل التالي<b>: [{‘<bdi dir="ltr" class="odt-ltr-term">action</bdi>’:<bdi dir="ltr" class="odt-ltr-term">action</bdi>, ‘<bdi dir="ltr" class="odt-ltr-term">status</bdi>’:val, ‘<bdi dir="ltr" class="odt-ltr-term">response</bdi>’:<bdi dir="ltr" class="odt-ltr-term">response</bdi>}]</b>. تعتبر عملية المصادقة ناجحة إذا كان<b> [<bdi dir="ltr" class="odt-ltr-term">status</bdi>==200]</b>. وإلا، يتم عرض رسالة خطأ، في السطرين 93-94؛
   </li>
@@ -2097,9 +2097,9 @@
       </li>
     </ul>
   </li>
-  <li>الأسطر 59-81: تعرض طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">handleResultatObtenu</bdi>] </b>نتيجة حساب الضريبة التي أرسلتها إليها طريقة العرض الفرعية <b>[<bdi dir="ltr" class="odt-ltr-term">FormCalculImpot</bdi>]</b>، السطر 6. هذه النتيجة عبارة عن كائن له الخصائص <b>[tax, <bdi dir="ltr" class="odt-ltr-term">discount</bdi>, <bdi dir="ltr" class="odt-ltr-term">reduction</bdi>, <bdi dir="ltr" class="odt-ltr-term">surcharge</bdi>, <bdi dir="ltr" class="odt-ltr-term">rate</bdi>, <bdi dir="ltr" class="odt-ltr-term">married</bdi>, <bdi dir="ltr" class="odt-ltr-term">children</bdi>, <bdi dir="ltr" class="odt-ltr-term">salary</bdi>]</b>؛
+  <li>الأسطر 59-81: تعرض طريقة<b> [<bdi dir="ltr" class="odt-ltr-term">handleResultatObtenu</bdi>] </b>نتيجة حساب الضريبة التي أرسلتها إليها طريقة العرض الفرعية <b>[<bdi dir="ltr" class="odt-ltr-term">FormCalculImpot</bdi>]</b>، السطر 6. هذه النتيجة عبارة عن كائن له الخصائص <b>[<bdi dir="ltr" class="odt-ltr-term">tax, discount, reduction, surcharge, rate, married, children, salary</bdi>]</b>؛
   </li>
-  <li>الأسطر 61-75: يتم إدراج الكائن <b>[tax, <bdi dir="ltr" class="odt-ltr-term">discount</bdi>, <bdi dir="ltr" class="odt-ltr-term">reduction</bdi>, <bdi dir="ltr" class="odt-ltr-term">surcharge</bdi>, <bdi dir="ltr" class="odt-ltr-term">rate</bdi>] </b>في نص <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> الذي يتم عرضه بواسطة السطر 17 من القالب؛
+  <li>الأسطر 61-75: يتم إدراج الكائن <b>[<bdi dir="ltr" class="odt-ltr-term">tax, discount, reduction, surcharge, rate</bdi>] </b>في نص <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> الذي يتم عرضه بواسطة السطر 17 من القالب؛
   </li>
   <li>السطر 77: يتم عرض هذه النتيجة؛
   </li>
@@ -2320,7 +2320,7 @@
   </li>
   <li>الأسطر 94-109: طريقة حساب الضريبة:
     <ul>
-      <li>الأسطر 96–100: تقوم طبقة<b> [<bdi dir="ltr" class="odt-ltr-term">business</bdi>] </b>بإجراء هذا الحساب. هذا حساب متزامن. بمجرد استرداد<b> [<bdi dir="ltr" class="odt-ltr-term">taxAdminData</bdi>]</b>، لا يحتاج العميل <b>[<bdi dir="ltr" class="odt-ltr-term">View</bdi>] </b>إلى التواصل مع الخادم. يتم كل شيء محليًا. نحصل على كائن <b>[<bdi dir="ltr" class="odt-ltr-term">result</bdi>] </b>بالخصائص <b>[tax, <bdi dir="ltr" class="odt-ltr-term">discount</bdi>, <bdi dir="ltr" class="odt-ltr-term">surcharge</bdi>, <bdi dir="ltr" class="odt-ltr-term">reduction</bdi>, <bdi dir="ltr" class="odt-ltr-term">rate</bdi>]</b>؛
+      <li>الأسطر 96–100: تقوم طبقة<b> [<bdi dir="ltr" class="odt-ltr-term">business</bdi>] </b>بإجراء هذا الحساب. هذا حساب متزامن. بمجرد استرداد<b> [<bdi dir="ltr" class="odt-ltr-term">taxAdminData</bdi>]</b>، لا يحتاج العميل <b>[<bdi dir="ltr" class="odt-ltr-term">View</bdi>] </b>إلى التواصل مع الخادم. يتم كل شيء محليًا. نحصل على كائن <b>[<bdi dir="ltr" class="odt-ltr-term">result</bdi>] </b>بالخصائص <b>[<bdi dir="ltr" class="odt-ltr-term">tax, discount, surcharge, reduction, rate</bdi>]</b>؛
       </li>
       <li>الأسطر 104–106: تُضاف الخصائص <b>[<bdi dir="ltr" class="odt-ltr-term">married</bdi>، <bdi dir="ltr" class="odt-ltr-term">children</bdi>، <bdi dir="ltr" class="odt-ltr-term">salary</bdi>] </b>إلى النتيجة؛
       </li>
